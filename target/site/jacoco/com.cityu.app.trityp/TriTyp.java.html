@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TriTyp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cs570team02</a> &gt; <a href="index.source.html" class="el_package">com.cityu.app.trityp</a> &gt; <span class="el_source">TriTyp.java</span></div><h1>TriTyp.java</h1><pre class="source lang-java linenums">package com.cityu.app.trityp;
+
+import java.io.*;
+
+<span class="nc" id="L5">public class TriTyp</span>
+{
+<span class="nc" id="L7">   private static String[] triTypes = { &quot;&quot;, // Ignore 0.</span>
+      &quot;scalene&quot;, &quot;isosceles&quot;, &quot;equilateral&quot;, &quot;not a valid triangle&quot;};
+<span class="nc" id="L9">   private static String instructions = &quot;This is the ancient TriTyp program.\nEnter three integers that represent the lengths of the sides of a triangle.\nThe triangle will be categorized as either scalene, isosceles, equilateral\nor invalid.\n&quot;;</span>
+
+public static void main (String[] argv)
+{  // Driver program for TriTyp
+   int A, B, C;
+   int T;
+
+<span class="nc" id="L16">   System.out.println (instructions);</span>
+<span class="nc" id="L17">   System.out.println (&quot;Enter side 1: &quot;);</span>
+<span class="nc" id="L18">   A = getN();</span>
+<span class="nc" id="L19">   System.out.println (&quot;Enter side 2: &quot;);</span>
+<span class="nc" id="L20">   B = getN();</span>
+<span class="nc" id="L21">   System.out.println (&quot;Enter side 3: &quot;);</span>
+<span class="nc" id="L22">   C = getN();</span>
+<span class="nc" id="L23">   T = triang (A, B, C);</span>
+
+<span class="nc" id="L25">   System.out.println (&quot;Result is: &quot; + triTypes[T]);</span>
+<span class="nc" id="L26">}</span>
+
+// ====================================
+// The main triangle classification method
+private static int triang (int Side1, int Side2, int Side3)
+{
+   int triOut;
+
+   // triOut is output from the routine:
+   //    triang = 1 if triangle is scalene
+   //    triang = 2 if triangle is isosceles
+   //    triang = 3 if triangle is equilateral
+   //    triang = 4 if not a triangle
+
+   // After a quick confirmation that it's a valid
+   // triangle, detect any sides of equal length
+<span class="nc bnc" id="L42" title="All 6 branches missed.">   if (Side1 &lt;= 0 || Side2 &lt;= 0 || Side3 &lt;= 0)</span>
+   {
+<span class="nc" id="L44">      triOut = 4;</span>
+<span class="nc" id="L45">      return (triOut);</span>
+   }
+
+<span class="nc" id="L48">   triOut = 0;</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">   if (Side1 == Side2)</span>
+<span class="nc" id="L50">      triOut = triOut + 1;</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">   if (Side1 == Side3)</span>
+<span class="nc" id="L52">      triOut = triOut + 2;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">   if (Side2 == Side3)</span>
+<span class="nc" id="L54">      triOut = triOut + 3;</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">   if (triOut == 0)</span>
+   {  // Confirm it's a valid triangle before declaring
+      // it to be scalene
+
+<span class="nc bnc" id="L59" title="All 6 branches missed.">     if (Side1+Side2 &lt;= Side3 || Side2+Side3 &lt;= Side1 ||</span>
+        Side1+Side3 &lt;= Side2)
+<span class="nc" id="L61">        triOut = 4;</span>
+     else
+<span class="nc" id="L63">        triOut = 1;</span>
+<span class="nc" id="L64">     return (triOut);</span>
+   }
+
+   // Confirm it's a valid triangle before declaring
+   // it to be isosceles or equilateral
+
+<span class="nc bnc" id="L70" title="All 2 branches missed.">   if (triOut &gt; 3)</span>
+<span class="nc" id="L71">      triOut = 3;</span>
+<span class="nc bnc" id="L72" title="All 4 branches missed.">   else if (triOut == 1 &amp;&amp; Side1+Side2 &gt; Side3)</span>
+<span class="nc" id="L73">      triOut = 2;</span>
+<span class="nc bnc" id="L74" title="All 4 branches missed.">   else if (triOut == 2 &amp;&amp; Side1+Side3 &gt; Side2)</span>
+<span class="nc" id="L75">      triOut = 2;</span>
+<span class="nc bnc" id="L76" title="All 4 branches missed.">   else if (triOut == 3 &amp;&amp; Side2+Side3 &gt; Side1)</span>
+<span class="nc" id="L77">      triOut = 2;</span>
+   else
+<span class="nc" id="L79">      triOut = 4;</span>
+<span class="nc" id="L80">   return (triOut);</span>
+} // end Triang
+
+// ====================================
+// Read (or choose) an integer
+private static int getN ()
+{
+<span class="nc" id="L87">   int inputInt = 1;</span>
+<span class="nc" id="L88">   BufferedReader in = new BufferedReader (new InputStreamReader (System.in));</span>
+   String inStr;
+
+   try
+   {
+<span class="nc" id="L93">      inStr    = in.readLine ();</span>
+<span class="nc" id="L94">      inputInt = Integer.parseInt(inStr);</span>
+   }
+<span class="nc" id="L96">   catch (IOException e)</span>
+   {
+<span class="nc" id="L98">      System.out.println (&quot;Could not read input, choosing 1.&quot;);</span>
+   }
+<span class="nc" id="L100">   catch (NumberFormatException e)</span>
+   {
+<span class="nc" id="L102">      System.out.println (&quot;Entry must be a number, choosing 1.&quot;);</span>
+<span class="nc" id="L103">   }</span>
+
+<span class="nc" id="L105">   return (inputInt);</span>
+}  // end getN
+
+}  // end TriTyp class
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

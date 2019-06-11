@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TriTyp",
+            "request": "launch",
+            "mainClass": "com.cityu.app.trityp.TriTyp",
+            "projectName": "cs570team02",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TriTypMutated",
+            "request": "launch",
+            "mainClass": "com.cityu.app.trityp.TriTypMutated",
+            "projectName": "cs570team02",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Cal",
+            "request": "launch",
+            "mainClass": "com.cityu.app.cal.Cal",
+            "projectName": "cs570team02",
+            "console": "integratedTerminal"
+        }
+    ]
+}

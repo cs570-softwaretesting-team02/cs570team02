@@ -1,1 +1,4 @@
 com\cityu\app\thermostat\ThermostatTest.class
+com\cityu\app\trityp_mutated\TriTypMutatedTest.class
+com\cityu\app\cal\CalTest.class
+com\cityu\app\trityp\TriTypTest.class

@@ -4,4 +4,5 @@ com\cityu\app\thermostat\Thermostat.class
 com\cityu\app\thermostat\DayType.class
 com\cityu\app\thermostat\Period.class
 com\cityu\app\thermostat\ProgrammedSettings.class
+com\cityu\app\trityp_mutated\TriTypMutated.class
 com\cityu\app\trityp\TriTyp.class

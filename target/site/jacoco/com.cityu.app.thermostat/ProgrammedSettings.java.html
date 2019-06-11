@@ -7,29 +7,29 @@ import java.util.*;
 
 public class ProgrammedSettings
 {
-<span class="nc" id="L10">   private Map&lt;Period, Map&lt;DayType, Integer&gt;&gt; settings = </span>
+<span class="fc" id="L10">   private Map&lt;Period, Map&lt;DayType, Integer&gt;&gt; settings = </span>
        new HashMap&lt;Period, Map&lt;DayType, Integer&gt;&gt;();
 
    // Property
    public ProgrammedSettings ()
-<span class="nc" id="L15">   {</span>
-<span class="nc bnc" id="L16" title="All 2 branches missed.">      for (Period p : Period.values())</span>
+<span class="fc" id="L15">   {</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">      for (Period p : Period.values())</span>
       {
-<span class="nc" id="L18">         HashMap&lt;DayType, Integer&gt; m = new HashMap&lt;DayType, Integer&gt;();</span>
-<span class="nc" id="L19">         settings.put (p, m);</span>
-<span class="nc bnc" id="L20" title="All 2 branches missed.">         for (DayType d : DayType.values())</span>
+<span class="fc" id="L18">         HashMap&lt;DayType, Integer&gt; m = new HashMap&lt;DayType, Integer&gt;();</span>
+<span class="fc" id="L19">         settings.put (p, m);</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">         for (DayType d : DayType.values())</span>
          {
-<span class="nc" id="L22">            m.put (d, 65); // Default value, 18.33C</span>
+<span class="fc" id="L22">            m.put (d, 65); // Default value, 18.33C</span>
          }
       }
-<span class="nc" id="L25">   }</span>
+<span class="fc" id="L25">   }</span>
    public void setSetting (Period period, DayType day, int temp)
    {
-<span class="nc" id="L28">      settings.get (period).put (day, temp);</span>
-<span class="nc" id="L29">   }</span>
+<span class="fc" id="L28">      settings.get (period).put (day, temp);</span>
+<span class="fc" id="L29">   }</span>
    public int getSetting (Period period, DayType day)
    {
-<span class="nc" id="L32">      return settings.get (period).get (day);</span>
+<span class="fc" id="L32">      return settings.get (period).get (day);</span>
    }
    public String toString()
    {

@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 // Programmable Thermostat
-<span class="nc" id="L7">public class Thermostat</span>
+<span class="fc" id="L7">public class Thermostat</span>
 {
    private int curTemp;          // current temperature reading
    private int thresholdDiff;    // temp difference until we turn heater on
@@ -20,40 +20,40 @@ import java.util.*;
    // Decide whether to turn the heater on, and for how long.
    public boolean turnHeaterOn (ProgrammedSettings pSet)
    {
-<span class="nc" id="L23">      int dTemp = pSet.getSetting (period, day);</span>
+<span class="fc" id="L23">      int dTemp = pSet.getSetting (period, day);</span>
 
-<span class="nc bnc" id="L25" title="All 8 branches missed.">      if (((curTemp &lt; dTemp - thresholdDiff) ||</span>
+<span class="pc bpc" id="L25" title="1 of 8 branches missed.">      if (((curTemp &lt; dTemp - thresholdDiff) ||</span>
            (override &amp;&amp; curTemp &lt; overTemp - thresholdDiff)) &amp;&amp;
            (timeSinceLastRun &gt; minLag))
       {  // Turn on the heater
          // How long? Assume 1 minute per degree (Fahrenheit)
-<span class="nc" id="L30">         int timeNeeded = curTemp - dTemp;</span>
-<span class="nc bnc" id="L31" title="All 2 branches missed.">         if (override)</span>
-<span class="nc" id="L32">            timeNeeded = curTemp - overTemp;</span>
-<span class="nc" id="L33">         setRunTime (timeNeeded);</span>
-<span class="nc" id="L34">         setHeaterOn (true);</span>
-<span class="nc" id="L35">         return (true);</span>
+<span class="fc" id="L30">         int timeNeeded = curTemp - dTemp;</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">         if (override)</span>
+<span class="fc" id="L32">            timeNeeded = curTemp - overTemp;</span>
+<span class="fc" id="L33">         setRunTime (timeNeeded);</span>
+<span class="fc" id="L34">         setHeaterOn (true);</span>
+<span class="fc" id="L35">         return (true);</span>
       }
       else
       {
-<span class="nc" id="L39">         setHeaterOn (false);</span>
-<span class="nc" id="L40">         return (false);</span>
+<span class="fc" id="L39">         setHeaterOn (false);</span>
+<span class="fc" id="L40">         return (false);</span>
       }
    } // End turnHeaterOn
 
-<span class="nc" id="L44">   public void setCurrentTemp (int temperature)  { curTemp = temperature; }</span>
-<span class="nc" id="L45">   public void setThresholdDiff (int delta)      { thresholdDiff = delta; }</span>
-<span class="nc" id="L46">   public void setTimeSinceLastRun (int minutes) { timeSinceLastRun = minutes; }</span>
-<span class="nc" id="L47">   public void setMinLag (int minutes)           { minLag = minutes; }</span>
-<span class="nc" id="L48">   public void setOverride (boolean value)       { override = value; }</span>
-<span class="nc" id="L49">   public void setOverTemp (int temperature)     { overTemp = temperature; }</span>
+<span class="fc" id="L44">   public void setCurrentTemp (int temperature)  { curTemp = temperature; }</span>
+<span class="fc" id="L45">   public void setThresholdDiff (int delta)      { thresholdDiff = delta; }</span>
+<span class="fc" id="L46">   public void setTimeSinceLastRun (int minutes) { timeSinceLastRun = minutes; }</span>
+<span class="fc" id="L47">   public void setMinLag (int minutes)           { minLag = minutes; }</span>
+<span class="fc" id="L48">   public void setOverride (boolean value)       { override = value; }</span>
+<span class="fc" id="L49">   public void setOverTemp (int temperature)     { overTemp = temperature; }</span>
 
    // for the ProgrammedSettings
-<span class="nc" id="L52">   public void setDay (DayType curDay)           { day = curDay; }</span>
-<span class="nc" id="L53">   public void setPeriod (Period curPeriod)      { period = curPeriod; }</span>
+<span class="fc" id="L52">   public void setDay (DayType curDay)           { day = curDay; }</span>
+<span class="fc" id="L53">   public void setPeriod (Period curPeriod)      { period = curPeriod; }</span>
 
    // outputs from turnHeaterOn - need corresponding getters to activate heater
-<span class="nc" id="L56">   void setRunTime  (int minutes)         { runTime = minutes; }</span>
-<span class="nc" id="L57">   void setHeaterOn (boolean value)       { heaterOn = value; }</span>
+<span class="fc" id="L56">   void setRunTime  (int minutes)         { runTime = minutes; }</span>
+<span class="fc" id="L57">   void setHeaterOn (boolean value)       { heaterOn = value; }</span>
 } // End Thermostat class
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

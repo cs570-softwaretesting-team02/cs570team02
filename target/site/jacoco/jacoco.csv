@@ -1,8 +1,9 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-cs570team02,com.cityu.app.cal,Cal,263,0,32,0,58,0,20,0,4,0
+cs570team02,com.cityu.app.cal,Cal,148,115,25,7,45,13,16,4,3,1
+cs570team02,com.cityu.app.trityp_mutated,TriTypMutated,73,120,24,10,19,29,18,4,1,4
 cs570team02,com.cityu.app,App,7,0,0,0,3,0,2,0,2,0
-cs570team02,com.cityu.app.trityp,TriTyp,193,0,34,0,48,0,22,0,5,0
-cs570team02,com.cityu.app.thermostat,Period,44,0,0,0,2,0,1,0,1,0
-cs570team02,com.cityu.app.thermostat,Thermostat,100,0,10,0,21,0,17,0,12,0
-cs570team02,com.cityu.app.thermostat,DayType,24,0,0,0,2,0,1,0,1,0
-cs570team02,com.cityu.app.thermostat,ProgrammedSettings,81,0,4,0,12,0,6,0,4,0
+cs570team02,com.cityu.app.trityp,TriTyp,67,126,6,28,21,27,9,13,3,2
+cs570team02,com.cityu.app.thermostat,Period,0,44,0,0,0,2,0,1,0,1
+cs570team02,com.cityu.app.thermostat,Thermostat,0,100,1,9,0,21,1,16,0,12
+cs570team02,com.cityu.app.thermostat,DayType,0,24,0,0,0,2,0,1,0,1
+cs570team02,com.cityu.app.thermostat,ProgrammedSettings,4,77,0,4,1,11,1,5,1,3

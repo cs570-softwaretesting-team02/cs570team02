@@ -27,7 +27,7 @@ public static void main (String[] argv)
 
 // ====================================
 // The main triangle classification method
-private static int triang (int Side1, int Side2, int Side3)
+public static int triang (int Side1, int Side2, int Side3)
 {
    int triOut;
 

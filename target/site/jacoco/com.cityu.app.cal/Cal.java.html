@@ -2,130 +2,113 @@
 
 import java.io.*;
 
-<span class="nc" id="L5">public class Cal</span>
-{
-   public static int cal (int month1, int day1, int month2,
-                          int day2, int year)
-   {
-   //***********************************************************
-   // Calculate the number of Days between the two given days in
-   // the same year.
-   // preconditions : day1 and day2 must be in same year
-   //               1 &lt;= month1, month2 &lt;= 12
-   //               1 &lt;= day1, day2 &lt;= 31
-   //               month1 &lt;= month2
-   //               The range for year: 1 ... 10000
-   //***********************************************************
-      int numDays; 
-     
-<span class="nc bnc" id="L21" title="All 2 branches missed.">      if (month2 == month1) // in the same month</span>
-<span class="nc" id="L22">         numDays  = day2 - day1;</span>
-      else
-      { 
+<span class="nc" id="L5">public class Cal {</span>
+   public static int cal(int month1, int day1, int month2, int day2, int year) {
+      // ***********************************************************
+      // Calculate the number of Days between the two given days in
+      // the same year.
+      // preconditions : day1 and day2 must be in same year
+      // 1 &lt;= month1, month2 &lt;= 12
+      // 1 &lt;= day1, day2 &lt;= 31
+      // month1 &lt;= month2
+      // The range for year: 1 ... 10000
+      // ***********************************************************
+      int numDays;
+
+<span class="fc bfc" id="L18" title="All 2 branches covered.">      if (month2 == month1) // in the same month</span>
+<span class="fc" id="L19">         numDays = day2 - day1;</span>
+      else {
          // Skip month 0.
-<span class="nc" id="L26">         int daysIn[] = {0, 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};</span>
+<span class="fc" id="L22">         int daysIn[] = { 0, 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };</span>
          // Are we in a leap year?
-<span class="nc" id="L28">         int m4 = year % 4; </span>
-<span class="nc" id="L29">         int m100 = year % 100;</span>
-<span class="nc" id="L30">         int m400 = year % 400;</span>
-<span class="nc bnc" id="L31" title="All 6 branches missed.">         if ((m4 != 0) || ((m100 == 0) &amp;&amp; (m400 != 0)))</span>
-<span class="nc" id="L32">            daysIn[2] = 28; </span>
+<span class="fc" id="L24">         int m4 = year % 4;</span>
+<span class="fc" id="L25">         int m100 = year % 100;</span>
+<span class="fc" id="L26">         int m400 = year % 400;</span>
+<span class="pc bpc" id="L27" title="3 of 6 branches missed.">         if ((m4 != 0) || ((m100 == 0) &amp;&amp; (m400 != 0)))</span>
+<span class="fc" id="L28">            daysIn[2] = 28;</span>
          else
-<span class="nc" id="L34">            daysIn[2] = 29;</span>
-   
+<span class="fc" id="L30">            daysIn[2] = 29;</span>
+
          // start with days in the two months
-<span class="nc" id="L37">         numDays = day2 + (daysIn[month1] - day1);</span>
-   
+<span class="fc" id="L33">         numDays = day2 + (daysIn[month1] - day1);</span>
+
          // add the days in the intervening months
-<span class="nc bnc" id="L40" title="All 2 branches missed.">         for (int i = month1 + 1; i &lt;= month2-1; i++)</span>
-<span class="nc" id="L41">            numDays = daysIn[i] + numDays;</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">         for (int i = month1 + 1; i &lt;= month2 - 1; i++)</span>
+<span class="fc" id="L37">            numDays = daysIn[i] + numDays;</span>
       }
-<span class="nc" id="L43">      return (numDays);</span>
+<span class="fc" id="L39">      return (numDays);</span>
    }
-   
-   public static void main (String[] argv)
-   {  // Driver program for cal
+
+   public static void main(String[] argv) { // Driver program for cal
       int month1, day1, month2, day2, year;
       int T;
-   
-<span class="nc" id="L51">      System.out.println (&quot;Enter month1: &quot;);</span>
-<span class="nc" id="L52">      month1 = getN();</span>
-<span class="nc" id="L53">      System.out.println (&quot;Enter day1: &quot;);</span>
-<span class="nc" id="L54">      day1 = getN();</span>
-<span class="nc" id="L55">      System.out.println (&quot;Enter month2: &quot;);</span>
-<span class="nc" id="L56">      month2 = getN();</span>
-<span class="nc" id="L57">      System.out.println (&quot;Enter day2: &quot;);</span>
-<span class="nc" id="L58">      day2 = getN();</span>
-<span class="nc" id="L59">      System.out.println (&quot;Enter year: &quot;);</span>
-<span class="nc" id="L60">      year = getN();</span>
-   // preconditions : day1 and day2 must be in same year
-   //               1 &lt;= month1, month2 &lt;= 12
-   //               1 &lt;= day1, day2 &lt;= 31
-   //               month1 &lt;= month2
-   //               The range for year: 1 ... 10000
-   
-<span class="nc bnc" id="L67" title="All 4 branches missed.">      if ( (month1 &lt; 1) || (month1 &gt; 12) )</span>
-      {
-<span class="nc" id="L69">         month1 = 1;</span>
-<span class="nc" id="L70">         System.out.println (&quot;invalid month1, choosing 1.&quot;);</span>
+
+<span class="nc" id="L46">      System.out.println(&quot;Enter month1: &quot;);</span>
+<span class="nc" id="L47">      month1 = getN();</span>
+<span class="nc" id="L48">      System.out.println(&quot;Enter day1: &quot;);</span>
+<span class="nc" id="L49">      day1 = getN();</span>
+<span class="nc" id="L50">      System.out.println(&quot;Enter month2: &quot;);</span>
+<span class="nc" id="L51">      month2 = getN();</span>
+<span class="nc" id="L52">      System.out.println(&quot;Enter day2: &quot;);</span>
+<span class="nc" id="L53">      day2 = getN();</span>
+<span class="nc" id="L54">      System.out.println(&quot;Enter year: &quot;);</span>
+<span class="nc" id="L55">      year = getN();</span>
+      // preconditions : day1 and day2 must be in same year
+      // 1 &lt;= month1, month2 &lt;= 12
+      // 1 &lt;= day1, day2 &lt;= 31
+      // month1 &lt;= month2
+      // The range for year: 1 ... 10000
+
+<span class="nc bnc" id="L62" title="All 4 branches missed.">      if ((month1 &lt; 1) || (month1 &gt; 12)) {</span>
+<span class="nc" id="L63">         month1 = 1;</span>
+<span class="nc" id="L64">         System.out.println(&quot;invalid month1, choosing 1.&quot;);</span>
       }
-<span class="nc bnc" id="L72" title="All 4 branches missed.">      if ( (month2 &lt; 1) || (month2 &gt; 12) )</span>
-      {
-<span class="nc" id="L74">         month2 = 1;</span>
-<span class="nc" id="L75">         System.out.println (&quot;invalid month2, choosing 1.&quot;);</span>
+<span class="nc bnc" id="L66" title="All 4 branches missed.">      if ((month2 &lt; 1) || (month2 &gt; 12)) {</span>
+<span class="nc" id="L67">         month2 = 1;</span>
+<span class="nc" id="L68">         System.out.println(&quot;invalid month2, choosing 1.&quot;);</span>
       }
-<span class="nc bnc" id="L77" title="All 4 branches missed.">      if ( (day1 &lt; 1) || (day1 &gt; 31) )</span>
-      {
-<span class="nc" id="L79">         day1 = 1;</span>
-<span class="nc" id="L80">         System.out.println (&quot;invalid day1, choosing 1.&quot;);</span>
+<span class="nc bnc" id="L70" title="All 4 branches missed.">      if ((day1 &lt; 1) || (day1 &gt; 31)) {</span>
+<span class="nc" id="L71">         day1 = 1;</span>
+<span class="nc" id="L72">         System.out.println(&quot;invalid day1, choosing 1.&quot;);</span>
       }
-<span class="nc bnc" id="L82" title="All 4 branches missed.">      if ( (day2 &lt; 1) || (day2 &gt; 31) )</span>
-      {
-<span class="nc" id="L84">         day2 = 1;</span>
-<span class="nc" id="L85">         System.out.println (&quot;invalid day2, choosing 1.&quot;);</span>
+<span class="nc bnc" id="L74" title="All 4 branches missed.">      if ((day2 &lt; 1) || (day2 &gt; 31)) {</span>
+<span class="nc" id="L75">         day2 = 1;</span>
+<span class="nc" id="L76">         System.out.println(&quot;invalid day2, choosing 1.&quot;);</span>
       }
-<span class="nc bnc" id="L87" title="All 2 branches missed.">      while ( month1 &gt; month2 )</span>
-      {
-<span class="nc" id="L89">         System.out.println (&quot;month1 must be prior or equals to month2&quot;);</span>
-<span class="nc" id="L90">         System.out.println (&quot;Enter month1: &quot;);</span>
-<span class="nc" id="L91">         month1 = getN();</span>
-<span class="nc" id="L92">         System.out.println (&quot;Enter month2: &quot;);</span>
-<span class="nc" id="L93">         month2 = getN();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">      while (month1 &gt; month2) {</span>
+<span class="nc" id="L79">         System.out.println(&quot;month1 must be prior or equals to month2&quot;);</span>
+<span class="nc" id="L80">         System.out.println(&quot;Enter month1: &quot;);</span>
+<span class="nc" id="L81">         month1 = getN();</span>
+<span class="nc" id="L82">         System.out.println(&quot;Enter month2: &quot;);</span>
+<span class="nc" id="L83">         month2 = getN();</span>
       }
-<span class="nc bnc" id="L95" title="All 4 branches missed.">      if ( (year &lt; 1) || (year &gt; 10000) )</span>
-      {
-<span class="nc" id="L97">         year = 1;</span>
-<span class="nc" id="L98">         System.out.println (&quot;invalid year, choosing 1.&quot;);</span>
+<span class="nc bnc" id="L85" title="All 4 branches missed.">      if ((year &lt; 1) || (year &gt; 10000)) {</span>
+<span class="nc" id="L86">         year = 1;</span>
+<span class="nc" id="L87">         System.out.println(&quot;invalid year, choosing 1.&quot;);</span>
       }
-   
-<span class="nc" id="L101">      T = cal (month1, day1, month2, day2, year);</span>
-   
-<span class="nc" id="L103">      System.out.println (&quot;Result is: &quot; + T);</span>
-<span class="nc" id="L104">   }</span>
-   
+
+<span class="nc" id="L90">      T = cal(month1, day1, month2, day2, year);</span>
+
+<span class="nc" id="L92">      System.out.println(&quot;Result is: &quot; + T);</span>
+<span class="nc" id="L93">   }</span>
+
    // ====================================
    // Read (or choose) an integer
-   private static int getN ()
-   {
-<span class="nc" id="L110">      int inputInt = 1;</span>
-<span class="nc" id="L111">      BufferedReader in = new BufferedReader (new InputStreamReader (System.in));</span>
+   private static int getN() {
+<span class="nc" id="L98">      int inputInt = 1;</span>
+<span class="nc" id="L99">      BufferedReader in = new BufferedReader(new InputStreamReader(System.in));</span>
       String inStr;
-   
-      try
-      {
-<span class="nc" id="L116">         inStr    = in.readLine ();</span>
-<span class="nc" id="L117">         inputInt = Integer.parseInt(inStr);</span>
-      }
-<span class="nc" id="L119">      catch (IOException e)</span>
-      {
-<span class="nc" id="L121">         System.out.println (&quot;Could not read input, choosing 1.&quot;);</span>
-      }
-<span class="nc" id="L123">      catch (NumberFormatException e)</span>
-      {
-<span class="nc" id="L125">         System.out.println (&quot;Entry must be a number, choosing 1.&quot;);</span>
-<span class="nc" id="L126">      }</span>
-   
-<span class="nc" id="L128">      return (inputInt);</span>
-   }  // end getN
+
+      try {
+<span class="nc" id="L103">         inStr = in.readLine();</span>
+<span class="nc" id="L104">         inputInt = Integer.parseInt(inStr);</span>
+<span class="nc" id="L105">      } catch (IOException e) {</span>
+<span class="nc" id="L106">         System.out.println(&quot;Could not read input, choosing 1.&quot;);</span>
+<span class="nc" id="L107">      } catch (NumberFormatException e) {</span>
+<span class="nc" id="L108">         System.out.println(&quot;Entry must be a number, choosing 1.&quot;);</span>
+<span class="nc" id="L109">      }</span>
+
+<span class="nc" id="L111">      return (inputInt);</span>
+   } // end getN
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
